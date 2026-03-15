@@ -1,0 +1,10 @@
+# Netlify Redirects
+# Redirect root to Portuguese version by default
+/  /playbook-mis-pt.html  301
+
+# Optional: Short links for easier access
+/pt  /playbook-mis-pt.html  301
+/en  /playbook-mis-en.html  301
+
+# Ensure 404 falls back to index or a specific 404 page (optional)
+# /* /index.html 404
