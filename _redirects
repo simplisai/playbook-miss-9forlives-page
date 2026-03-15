@@ -1,9 +1,10 @@
 # Netlify Rewrite Rules
-# Serve the Portuguese version as the homepage (Status 200 keeps the URL clean)
-/  /playbook-mis-pt.html  200
 
-# Redirect /pt to root (Clean URL normalization)
-/pt  /  301
+# Portuguese Version (Clean URL /pt)
+/pt  /playbook-mis-pt.html  200
 
-# English version stays as is
-/en  /playbook-mis-en.html  301
+# English Version (Clean URL /en)
+/en  /playbook-mis-en.html  200
+
+# Default Redirect (Root -> /pt)
+/  /pt  301
