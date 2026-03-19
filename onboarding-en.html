@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Missionary Registration Playbook</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<meta property="og:title" content="New Missionary Registration Playbook - 9forLives">
+<meta property="og:description" content="Official guide for the complete onboarding process of missionaries on the 9forLives platform.">
+<meta property="og:image" content="images/logo-official.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #111111;
+    --bg-2: #181818;
+    --bg-3: #1f1f1f;
+    --border: rgba(255,255,255,0.07);
+    --border-md: rgba(255,255,255,0.12);
+    --border-strong: rgba(255,255,255,0.18);
+    --text-1: #f5f5f5;
+    --text-2: #a3a3a3;
+    --text-3: #6b6b6b;
+    --text-4: #444;
+    --accent: #fff;
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.06);
+    --red-border: rgba(239,68,68,0.18);
+    --red-text: #fca5a5;
+    --amber: #f59e0b;
+    --amber-bg: rgba(245,158,11,0.06);
+    --amber-border: rgba(245,158,11,0.18);
+    --amber-text: #fcd34d;
+    --green: #10b981;
+    --green-bg: rgba(16,185,129,0.06);
+    --green-border: rgba(16,185,129,0.18);
+    --green-text: #6ee7b7;
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.06);
+    --blue-border: rgba(59,130,246,0.18);
+    --blue-text: #93c5fd;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --nav-height: 72px;
+    --sidenav-width: 240px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { 
+    background: var(--bg); 
+    color: var(--text-2); 
+    line-height: 1.6; 
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* TOP NAVIGATION */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center; gap: 12px; text-decoration: none;
+  }
+
+  .nav-logo img { height: 32px; width: auto; }
+
+  .nav-logo-text { font-size: 14px; font-weight: 600; color: var(--text-1); letter-spacing: -0.01em; }
+
+  .lang-switch { display: flex; gap: 4px; background: var(--bg-2); border: 1px solid var(--border); padding: 4px; border-radius: 999px; }
+
+  .lang-btn { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; font-size: 11px; font-weight: 600; color: var(--text-3); text-decoration: none; transition: all 0.2s; border: none; background: transparent; cursor: pointer; }
+
+  .lang-btn:hover { color: var(--text-1); background: var(--bg-3); }
+
+  .lang-btn.active { background: var(--text-1); color: var(--bg); }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* SIDENAV */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .sidenav {
+    position: fixed; top: var(--nav-height); left: 0; height: calc(100vh - var(--nav-height)); width: var(--sidenav-width); background: var(--bg-1); border-right: 1px solid var(--border); padding: 32px 20px; display: flex; flex-direction: column; gap: 4px; z-index: 100; overflow-y: auto;
+  }
+
+  .sidenav a { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: var(--radius-sm); font-size: 13px; color: var(--text-3); text-decoration: none; transition: all 0.15s; }
+  .sidenav a:hover { color: var(--text-1); background: var(--bg-2); }
+  .sidenav a.active { color: var(--text-1); background: var(--bg-3); font-weight: 500; }
+  .sidenav-num { font-size: 10px; font-weight: 600; color: var(--text-4); letter-spacing: 0.04em; min-width: 16px; }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* MAIN CONTENT */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .main { margin-left: var(--sidenav-width); }
+  .page { max-width: 800px; margin: 0 auto; padding: 0 40px 80px; }
+
+  header { padding: 80px 0 64px; border-bottom: 1px solid var(--border); }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-md); background: var(--bg-2); font-size: 11px; font-weight: 500; color: var(--text-3); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-4); }
+  h1 { font-size: clamp(32px, 5vw, 44px); font-weight: 600; color: var(--text-1); letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 16px; }
+  .header-sub { font-size: 18px; color: var(--text-2); max-width: 580px; line-height: 1.6; margin-bottom: 40px; }
+  .header-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-1); }
+  .meta-item { padding: 20px; border-right: 1px solid var(--border); }
+  .meta-item:last-child { border-right: none; }
+  .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-4); font-weight: 600; margin-bottom: 6px; }
+  .meta-value { font-size: 14px; font-weight: 500; color: var(--text-1); }
+
+  section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  
+  .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-4); font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 40px; }
+  h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 600; color: var(--text-1); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+  .section-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; max-width: 640px; margin-bottom: 48px; }
+
+  .subsection { margin-top: 56px; }
+  .subsection-title { font-size: 13px; font-weight: 600; color: var(--text-3); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+  .card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px; }
+  .card-sm { padding: 20px 24px; border-radius: var(--radius-md); }
+  .card-grid { display: grid; gap: 16px; }
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .alert { border-radius: var(--radius-lg); padding: 24px; display: flex; gap: 20px; align-items: flex-start; }
+  .alert-icon { width: 36px; height: 36px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .alert h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .alert p { font-size: 14px; line-height: 1.6; }
+  .alert-red { background: var(--red-bg); border: 1px solid var(--red-border); }
+  .alert-red .alert-icon { background: rgba(239,68,68,0.12); color: var(--red); }
+  .alert-red h3 { color: var(--red-text); }
+  .alert-red p { color: rgba(252,165,165,0.8); }
+  .alert-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+  .alert-amber .alert-icon { background: rgba(245,158,11,0.12); color: var(--amber); }
+  .alert-amber h3 { color: var(--amber-text); }
+  .alert-amber p { color: rgba(252,211,77,0.8); }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 24px; position: relative; }
+  .step::before { content: ''; position: absolute; left: 16px; top: 40px; bottom: 0; width: 1px; background: var(--border); }
+  .step:last-child::before { display: none; }
+  .step-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; z-index: 1; background: var(--bg-2); border: 1px solid var(--border-md); color: var(--text-2); }
+  .step-body { flex: 1; padding: 4px 0 40px; }
+  .step-body h4 { font-size: 16px; font-weight: 600; color: var(--text-1); margin-bottom: 10px; }
+  .step-body p { font-size: 14px; color: var(--text-2); }
+
+  .img-container { margin: 32px 0; border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; background: var(--bg-1); }
+  .img-container img { width: 100%; display: block; height: auto; }
+  .img-container figcaption { padding: 12px 16px; font-size: 12px; color: var(--text-4); text-align: center; background: var(--bg-2); border-top: 1px solid var(--border); }
+
+  .menu-btn { display: none; position: fixed; bottom: 24px; right: 24px; z-index: 1100; width: 56px; height: 56px; border-radius: 50%; background: var(--text-1); color: var(--bg); align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.4); font-size: 24px; }
+
+  @media (max-width: 1024px) {
+    .sidenav { transform: translateX(-100%); transition: transform 0.3s ease; }
+    .sidenav.active { transform: translateX(0); }
+    .main { margin-left: 0; }
+    .page { padding: 0 24px 80px; }
+    .menu-btn { display: flex; }
+    .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+    .header-meta { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-official.png" alt="9forLives">
+        <span class="nav-logo-text">Knowledge Center</span>
+      </a>
+      
+      <div class="lang-switch">
+        <a href="onboarding-en.html" class="lang-btn active">EN</a>
+        <a href="onboarding-pt.html" class="lang-btn">PT</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- SIDENAV -->
+<nav class="sidenav">
+<a href="#intro"><span class="sidenav-num">01</span> Introduction</a>
+<a href="#flow"><span class="sidenav-num">02</span> Registration Flow</a>
+<a href="#steps"><span class="sidenav-num">03</span> Detailed Stages</a>
+<a href="#dashboard"><span class="sidenav-num">04</span> The Dashboard</a>
+<a href="#checklist"><span class="sidenav-num">05</span> Pre-Mission Checklist</a>
+</nav>
+
+<!-- Mobile Menu -->
+<button class="menu-btn">☰</button>
+
+<!-- MAIN -->
+<div class="main">
+<div class="page">
+<!-- HEADER -->
+<header>
+<div class="badge">
+<span class="badge-dot"></span>
+    Internal use · Approved missionaries only
+  </div>
+<h1>New Missionary Registration Playbook</h1>
+<p class="header-sub">Official guide for the complete onboarding process of missionaries on the 9forLives platform.</p>
+<div class="header-meta">
+<div class="meta-item">
+<div class="meta-label">Version</div>
+<div class="meta-value">4.0</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Modules</div>
+<div class="meta-value">8 Stages</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Classification</div>
+<div class="meta-value">Confidential</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Audience</div>
+<div class="meta-value">Candidates</div>
+</div>
+</div>
+</header>
+
+<!-- INTRODUCTION -->
+<section id="intro">
+<div class="section-label">Introduction</div>
+<h2>What We Expect from the Missionary</h2>
+<p class="section-intro">The 9forLives missionary is a transformational agent committed to the mission of impacting lives through technology and the Word.</p>
+
+<div class="card-grid card-grid-3">
+    <div class="card card-sm"><h4>Commitment</h4><p style="font-size:13px;color:var(--text-3);">Sincere dedication to organizational objectives.</p></div>
+    <div class="card card-sm"><h4>Integrity</h4><p style="font-size:13px;color:var(--text-3);">Honesty in all operations and records.</p></div>
+    <div class="card card-sm"><h4>Resilience</h4><p style="font-size:13px;color:var(--text-3);">Firmness in the face of field challenges.</p></div>
+</div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+<div class="section-label">Process</div>
+<h2>Registration Flow</h2>
+<p class="section-intro">The registration form is structured in 8 main stages that collect progressive information.</p>
+<div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h4>Welcome</h4><p>Introduction to 9forLives vision.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h4>Personal Data</h4><p>Identity and access.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h4>Location</h4><p>Where Bibles will be delivered.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h4>Affiliation</h4><p>Connection with the faith community.</p></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><h4>Purpose</h4><p>Your motivation and interest areas.</p></div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-body"><h4>Preferences</h4><p>Automatic system settings.</p></div></div>
+    <div class="step"><div class="step-num">7</div><div class="step-body"><h4>Documents</h4><p>Identity validation.</p></div></div>
+    <div class="step"><div class="step-num">8</div><div class="step-body"><h4>Conclusion</h4><p>Account activation.</p></div></div>
+</div>
+</section>
+
+<!-- DETAILED STAGES -->
+<section id="steps">
+<div class="section-label">Stages</div>
+<h2>Form Details</h2>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 1 — Welcome</div>
+    <p>Platform presentation and expectation alignment.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/01-en.png" alt="Welcome Screen">
+        <figcaption>Screen 01: Introduction to the 9forLives system</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 2 — Personal Data</div>
+    <p>Collection of basic information to create the profile.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/02-en.png" alt="Personal Data Screen">
+        <figcaption>Screen 02: Name, email, and password registration</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 3 — Logistics Location</div>
+    <div class="alert alert-red">
+        <div class="alert-icon">!</div>
+        <div>
+            <h3>Critical Rule: Delivery Address</h3>
+            <p>This is where you will receive the funded Bibles. It must be a fixed and secure address.</p>
+        </div>
+    </div>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/03-en.png" alt="Location Screen">
+        <figcaption>Screen 03: Defining the missionary's logistics hub</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 4 — Religious Affiliation</div>
+    <p>Details about your church and local leadership.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/04-en.png" alt="Affiliation Screen">
+        <figcaption>Screen 04: Ministerial and institutional bond</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 5 — Mission & Purpose</div>
+    <p>Geographic interest areas and missionary motivation.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/05-en.png" alt="Purpose Screen">
+        <figcaption>Screen 05: Defining the focus of action</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 6 — Automatic Preferences</div>
+    <p>Notification settings and system preferences.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/06-en.png" alt="Preferences Screen">
+        <figcaption>Screen 06: Automatic profile adjustments</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 7 — Documentation</div>
+    <p>Official document upload for account verification.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/07-en.png" alt="Documentation Screen">
+        <figcaption>Screen 07: Uploading ID/Passport for validation</figcaption>
+    </figure>
+</div>
+
+<div class="subsection">
+    <div class="subsection-title">Stage 8 — Conclusion</div>
+    <p>Final review and activation of your control panel.</p>
+    <figure class="img-container">
+        <img src="images-mis-onboarding/08-en.png" alt="Conclusion Screen">
+        <figcaption>Screen 08: Registration successfully completed</figcaption>
+    </figure>
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+<div class="section-label">Post-Registration</div>
+<h2>The Missionary Dashboard</h2>
+<p class="section-intro">After approval, you will have access to your operational command center.</p>
+<div class="card-grid card-grid-2">
+    <div class="card"><h4>Life Management</h4><p style="font-size:13px;color:var(--text-3);">Register beneficiaries and track each one's status.</p></div>
+    <div class="card"><h4>Logistics</h4><p style="font-size:13px;color:var(--text-3);">Track Bible shipments to your base.</p></div>
+</div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist">
+<div class="section-label">Finalization</div>
+<h2>Pre-Mission Checklist</h2>
+<div class="card card-sm">
+    <ul style="font-size:14px; color:var(--text-2); list-style:none; display:flex; flex-direction:column; gap:12px;">
+        <li style="display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border:1px solid var(--green); border-radius:4px; display:inline-block;"></span> Registration 100% complete</li>
+        <li style="display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border:1px solid var(--green); border-radius:4px; display:inline-block;"></span> Documents uploaded and validated</li>
+        <li style="display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border:1px solid var(--green); border-radius:4px; display:inline-block;"></span> Logistics address confirmed</li>
+    </ul>
+</div>
+</section>
+
+<footer style="padding: 40px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 12px; color: var(--text-4);">
+  <span>&copy; 2024 9forLives. All rights reserved.</span>
+  <span>v4.0</span>
+</footer>
+</div>
+</div>
+
+<script>
+  // Language synchronization
+  const currentLang = 'en';
+  const storedLang = localStorage.getItem('playbook-lang');
+  
+  if (storedLang && storedLang !== currentLang) {
+    if (storedLang === 'pt-BR') {
+      window.location.href = 'onboarding-pt.html';
+    }
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetLang = btn.textContent.trim() === 'EN' ? 'en' : 'pt-BR';
+      localStorage.setItem('playbook-lang', targetLang);
+    });
+  });
+
+  document.querySelector('.menu-btn').addEventListener('click', () => {
+    document.querySelector('.sidenav').classList.toggle('active');
+  });
+
+  // Active Nav Scroll
+  const links = document.querySelectorAll('.sidenav a');
+  const sections = document.querySelectorAll('section[id], header');
+  function updateNav() {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id || ''; });
+    links.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>
+
+</body>
+</html>

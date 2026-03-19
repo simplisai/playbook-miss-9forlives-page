@@ -1,10 +1,16 @@
 # Netlify Rewrite Rules
 
-# Portuguese Version (Clean URL /pt)
-/pt  /playbook-mis-pt.html  200
+# Home
+/  /index.html  200
 
-# English Version (Clean URL /en)
-/en  /playbook-mis-en.html  200
+# Onboarding
+/onboarding/pt  /onboarding-pt.html  200
+/onboarding/en  /onboarding-en.html  200
 
-# Default Redirect (Root -> /pt)
-/  /pt  301
+# Operations
+/operations/pt  /operations-pt.html  200
+/operations/en  /operations-en.html  200
+
+# Legacy compatibility (optional but good)
+/pt  /operations-pt.html  200
+/en  /operations-en.html  200

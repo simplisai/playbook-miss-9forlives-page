@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="root-html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centro de Conhecimento 9forLives - Playbooks e Guias Operacionais">
+  <meta property="og:title" content="Playbooks 9forLives">
+  <meta property="og:description" content="Sua bíblia operacional para missão e impacto">
+  <title id="page-title">Centro de Conhecimento 9forLives</title>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-1: #111111;
+      --bg-2: #181818;
+      --bg-3: #1f1f1f;
+      --border: rgba(255,255,255,0.07);
+      --border-md: rgba(255,255,255,0.12);
+      --border-strong: rgba(255,255,255,0.18);
+      --text-1: #f5f5f5;
+      --text-2: #a3a3a3;
+      --text-3: #6b6b6b;
+      --text-4: #444;
+      --accent: #fff;
+      --red: #ef4444;
+      --red-bg: rgba(239,68,68,0.06);
+      --red-border: rgba(239,68,68,0.18);
+      --red-text: #fca5a5;
+      --blue: #3b82f6;
+      --blue-bg: rgba(59,130,246,0.06);
+      --blue-border: rgba(59,130,246,0.18);
+      --blue-text: #93c5fd;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --nav-height: 72px;
+      --page-max-width: 840px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-2);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-top: var(--nav-height);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* TOP NAVIGATION */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-container {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-1);
+      letter-spacing: -0.01em;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 999px;
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-1);
+      background: var(--bg-3);
+    }
+
+    .lang-btn.active {
+      background: var(--text-1);
+      color: var(--bg);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* LAYOUT & CONTAINERS */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    .page {
+      max-width: var(--page-max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border-md);
+      background: var(--bg-2);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text-4);
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 600;
+      color: var(--text-1);
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .header-sub {
+      font-size: 18px;
+      color: var(--text-2);
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .header-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-1);
+    }
+
+    .meta-item {
+      padding: 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .meta-item:last-child {
+      border-right: none;
+    }
+
+    .meta-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-4);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-1);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* MAIN CONTENT & GRID */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    main {
+      padding: 64px 0 80px;
+    }
+
+    .playbooks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      width: 100%;
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* PLAYBOOK CARDS */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    .playbook-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: var(--bg-1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      min-height: 440px;
+    }
+
+    .playbook-card:hover {
+      border-color: var(--border-strong);
+      background: var(--bg-2);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.7);
+    }
+
+    .playbook-card.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: var(--bg-3);
+      color: var(--text-3);
+      border: 1px solid var(--border-md);
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+
+    .card-badge.new {
+      background: var(--blue-bg);
+      color: var(--blue-text);
+      border-color: var(--blue-border);
+    }
+
+    .card-icon {
+      font-size: 44px;
+      margin-bottom: 24px;
+      display: block;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      line-height: 1.2;
+      color: var(--text-1);
+      letter-spacing: -0.02em;
+    }
+
+    .card-description {
+      font-size: 14px;
+      color: var(--text-3);
+      margin-bottom: auto;
+      line-height: 1.6;
+      padding-bottom: 32px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .meta-item-small {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .meta-label-small {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-4);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .meta-value-small {
+      color: var(--text-2);
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: var(--bg-3);
+      color: var(--text-1);
+      border: 1px solid var(--border-md);
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .playbook-card:hover .card-action {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* FOOTER */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    footer span {
+      font-size: 12px;
+      color: var(--text-4);
+    }
+
+    /* ─────────────────────────────────────────────────────────────────────────── */
+    /* RESPONSIVE */
+    /* ─────────────────────────────────────────────────────────────────────────── */
+
+    @media (max-width: 1024px) {
+      :root {
+        --page-max-width: 100%;
+      }
+      .playbooks-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 48px 0 40px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .header-sub {
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+
+      .header-meta {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .meta-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .meta-item:nth-child(3) {
+        border-right: 1px solid var(--border);
+      }
+
+      .playbooks-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .playbook-card {
+        padding: 28px;
+        min-height: auto;
+      }
+
+      main {
+        padding: 40px 0 64px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 32px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-official.png" alt="9forLives">
+        <span class="nav-logo-text">Knowledge Center</span>
+      </a>
+      
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="pt-BR">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="page">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span id="badge-text">Uso interno · Apenas missionários aprovados</span>
+    </div>
+    <h1 id="header-title">Centro de<br>Conhecimento</h1>
+    <p class="header-sub" id="header-subtitle">Sua bíblia operacional para transformar vidas e comunidades. Guias, processos e melhores práticas.</p>
+    <div class="header-meta">
+      <div class="meta-item">
+        <div class="meta-label" id="meta-label-1">Disponível</div>
+        <div class="meta-value" id="meta-value-1">2 Playbooks</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label" id="meta-label-2">Versão</div>
+        <div class="meta-value" id="meta-value-2">4.0</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label" id="meta-label-3">Classificação</div>
+        <div class="meta-value" id="meta-value-3">Confidencial</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label" id="meta-label-4">Público</div>
+        <div class="meta-value" id="meta-value-4">Aprovados</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="page">
+    <section class="playbooks-grid" id="playbooks-container">
+      <!-- Cards serão inseridas dinamicamente aqui -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="page">
+    <span id="footer-left">9forLives Platform · Knowledge Center · v4.0</span>
+    <span id="footer-right">Uso Interno e Confidencial</span>
+  </footer>
+
+  <script>
+    // ═════════════════════════════════════════════════════════════════════════════
+    // DADOS MULTILÍNGUES
+    // ═════════════════════════════════════════════════════════════════════════════
+
+    const translations = {
+      'pt-BR': {
+        'page-title': 'Centro de Conhecimento 9forLives',
+        'badge-text': 'Uso interno · Apenas missionários aprovados',
+        'header-title': 'Centro de<br>Conhecimento',
+        'header-subtitle': 'Sua bíblia operacional para transformar vidas e comunidades. Guias, processos e melhores práticas.',
+        'meta-label-1': 'Disponível',
+        'meta-value-1': '2 Playbooks',
+        'meta-label-2': 'Versão',
+        'meta-value-2': '4.0',
+        'meta-label-3': 'Classificação',
+        'meta-value-3': 'Confidencial',
+        'meta-label-4': 'Público',
+        'meta-value-4': 'Aprovados',
+        'footer-left': '9forLives Platform · Knowledge Center · v4.0',
+        'footer-right': 'Uso Interno e Confidencial',
+        'playbooks': [
+          {
+            id: 1,
+            icon: '🚀',
+            badge: 'NOVO',
+            badgeClass: 'new',
+            title: 'Onboarding de Missionários',
+            description: 'Guia oficial para o processo completo de onboarding de missionários na plataforma 9forLives. 8 etapas detalhadas, orientações e checklist.',
+            pages: '45 páginas',
+            readTime: '25 min',
+            sections: '8 seções',
+            cta: 'Acessar Playbook',
+            link: 'onboarding-pt.html'
+          },
+          {
+            id: 2,
+            icon: '⚙️',
+            badge: 'COMPLETO',
+            badgeClass: '',
+            title: 'Operações & Aplicação',
+            description: 'Guia operacional completo para gestão de beneficiários, logística de entregas e prestação de contas na plataforma 9forLives.',
+            pages: '78 páginas',
+            readTime: '35 min',
+            sections: '5 módulos',
+            cta: 'Acessar Playbook',
+            link: 'operations-pt.html'
+          },
+          {
+            id: 3,
+            icon: '🎓',
+            badge: 'EM DESENVOLVIMENTO',
+            badgeClass: '',
+            title: 'Treinamento & Capacitação',
+            description: 'Programa de desenvolvimento de missionários. Liderança comunitária, uso de tecnologia, habilidades de comunicação e gestão de impacto.',
+            pages: 'Em breve',
+            readTime: '40 min',
+            sections: '10 seções',
+            cta: 'Em Breve',
+            link: '#',
+            disabled: true
+          }
+        ]
+      },
+      'en': {
+        'page-title': '9forLives Knowledge Center',
+        'badge-text': 'Internal use · Approved missionaries only',
+        'header-title': 'Knowledge<br>Center',
+        'header-subtitle': 'Your operational bible for transforming lives and communities. Guides, processes, and best practices.',
+        'meta-label-1': 'Available',
+        'meta-value-1': '2 Playbooks',
+        'meta-label-2': 'Version',
+        'meta-value-2': '4.0',
+        'meta-label-3': 'Classification',
+        'meta-value-3': 'Confidential',
+        'meta-label-4': 'Audience',
+        'meta-value-4': 'Approved',
+        'footer-left': '9forLives Platform · Knowledge Center · v4.0',
+        'footer-right': 'Internal and Confidential Use',
+        'playbooks': [
+          {
+            id: 1,
+            icon: '🚀',
+            badge: 'NEW',
+            badgeClass: 'new',
+            title: 'Missionary Onboarding',
+            description: 'Official guide for the complete onboarding process of missionaries on the 9forLives platform. 8 detailed stages, instructions, and checklist.',
+            pages: '45 pages',
+            readTime: '25 min',
+            sections: '8 sections',
+            cta: 'Access Playbook',
+            link: 'onboarding-en.html'
+          },
+          {
+            id: 2,
+            icon: '⚙️',
+            badge: 'COMPLETE',
+            badgeClass: '',
+            title: 'Operations & Application',
+            description: 'Complete operational guide for beneficiary management, delivery logistics, and accountability on the 9forLives platform.',
+            pages: '78 pages',
+            readTime: '35 min',
+            sections: '5 modules',
+            cta: 'Access Playbook',
+            link: 'operations-en.html'
+          },
+          {
+            id: 3,
+            icon: '🎓',
+            badge: 'IN DEVELOPMENT',
+            badgeClass: '',
+            title: 'Training & Capacity Building',
+            description: 'Missionary development program. Community leadership, technology use, communication skills, and impact management.',
+            pages: 'Coming soon',
+            readTime: '40 min',
+            sections: '10 sections',
+            cta: 'Coming Soon',
+            link: '#',
+            disabled: true
+          }
+        ]
+      }
+    };
+
+    // ═════════════════════════════════════════════════════════════════════════════
+    // FUNÇÃO DE TRADUÇÃO
+    // ═════════════════════════════════════════════════════════════════════════════
+
+    let currentLanguage = localStorage.getItem('playbook-lang') || 'pt-BR';
+
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      localStorage.setItem('playbook-lang', lang);
+      document.documentElement.lang = lang;
+
+      // Atualizar elementos de texto simples
+      const textElements = [
+        'badge-text', 'header-title', 'header-subtitle',
+        'meta-label-1', 'meta-value-1', 'meta-label-2', 'meta-value-2',
+        'meta-label-3', 'meta-value-3', 'meta-label-4', 'meta-value-4',
+        'footer-left', 'footer-right'
+      ];
+
+      textElements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element && translations[lang][id]) {
+          element.innerHTML = translations[lang][id];
+        }
+      });
+
+      // Atualizar title da página
+      document.title = translations[lang]['page-title'];
+
+      // Atualizar cards
+      renderPlaybooks();
+
+      // Atualizar botões de idioma
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.lang === lang) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════════
+    // RENDERIZAÇÃO DE PLAYBOOKS
+    // ═════════════════════════════════════════════════════════════════════════════
+
+    function renderPlaybooks() {
+      const container = document.getElementById('playbooks-container');
+      const playbooks = translations[currentLanguage].playbooks;
+
+      container.innerHTML = playbooks.map(playbook => `
+        <a href="${playbook.link}" class="playbook-card ${playbook.disabled ? 'disabled' : ''}">
+          <span class="card-badge ${playbook.badgeClass}">${playbook.badge}</span>
+          
+          <div class="card-icon">${playbook.icon}</div>
+          
+          <h2 class="card-title">${playbook.title}</h2>
+          
+          <p class="card-description">${playbook.description}</p>
+          
+          <div class="card-meta">
+            <div class="meta-item-small">
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Extensão' : 'Length'}</span>
+              <span class="meta-value-small">${playbook.pages}</span>
+            </div>
+            <div class="meta-item-small">
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Leitura' : 'Read'}</span>
+              <span class="meta-value-small">${playbook.readTime}</span>
+            </div>
+            <div class="meta-item-small">
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Seções' : 'Sections'}</span>
+              <span class="meta-value-small">${playbook.sections}</span>
+            </div>
+          </div>
+          
+          <div class="card-action">
+            ${playbook.cta}
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════════
+    // EVENT LISTENERS
+    // ═════════════════════════════════════════════════════════════════════════════
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Inicializar
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLanguage);
+    });
+  </script>
+
+</body>
+</html>
