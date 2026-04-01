@@ -511,6 +511,7 @@
       <div class="lang-switch">
         <a href="operations-en.html" class="lang-btn">EN</a>
         <a href="operations-pt.html" class="lang-btn active">PT</a>
+        <a href="operations-es.html" class="lang-btn">ES</a>
       </div>
     </div>
   </nav>
@@ -1252,14 +1253,14 @@
   const storedLang = localStorage.getItem('playbook-lang');
   
   if (storedLang && storedLang !== currentLang) {
-    if (storedLang === 'en') {
-      window.location.href = 'operations-en.html';
-    }
+    if (storedLang === 'en') window.location.href = 'operations-en.html';
+    if (storedLang === 'es') window.location.href = 'operations-es.html';
   }
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const targetLang = btn.textContent.trim() === 'EN' ? 'en' : 'pt-BR';
+      const btnText = btn.textContent.trim().toUpperCase();
+      const targetLang = btnText === 'EN' ? 'en' : (btnText === 'PT' ? 'pt-BR' : 'es');
       localStorage.setItem('playbook-lang', targetLang);
     });
   });

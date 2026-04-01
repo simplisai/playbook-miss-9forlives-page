@@ -474,6 +474,7 @@
       <div class="lang-switch">
         <button class="lang-btn active" data-lang="pt-BR">PT</button>
         <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
     </div>
   </nav>
@@ -640,6 +641,64 @@
             disabled: true
           }
         ]
+      },
+      'es': {
+        'page-title': 'Centro de Conocimiento 9forLives',
+        'badge-text': 'Uso interno · Solo misioneros aprobados',
+        'header-title': 'Centro de<br>Conocimiento',
+        'header-subtitle': 'Su biblia operativa para transformar vidas y comunidades. Guías, procesos y mejores prácticas.',
+        'meta-label-1': 'Disponible',
+        'meta-value-1': '2 Playbooks',
+        'meta-label-2': 'Versión',
+        'meta-value-2': '4.0',
+        'meta-label-3': 'Clasificación',
+        'meta-value-3': 'Confidencial',
+        'meta-label-4': 'Público',
+        'meta-value-4': 'Aprobados',
+        'footer-left': '9forLives Platform · Knowledge Center · v4.0',
+        'footer-right': 'Uso Interno y Confidencial',
+        'playbooks': [
+          {
+            id: 1,
+            icon: '🚀',
+            badge: 'NUEVO',
+            badgeClass: 'new',
+            title: 'Registro de Misioneros',
+            description: 'Guía oficial para el proceso completo de registro de misioneros en la plataforma 9forLives. 8 etapas detalladas, orientaciones y checklist.',
+            pages: '45 páginas',
+            readTime: '25 min',
+            sections: '8 secciones',
+            cta: 'Acceder al Playbook',
+            link: 'onboarding-es.html'
+          },
+          {
+            id: 2,
+            icon: '⚙️',
+            badge: 'COMPLETO',
+            badgeClass: '',
+            title: 'Operaciones & Aplicación',
+            description: 'Guía operativa completa para la gestión de beneficiarios, logística de entregas y rendición de cuentas en la plataforma 9forLives.',
+            pages: '78 páginas',
+            readTime: '35 min',
+            sections: '5 módulos',
+            cta: 'Acceder al Playbook',
+            link: 'operations-es.html'
+          },
+          {
+            id: 3,
+            icon: '🎓',
+            badge: 'EN DESARROLLO',
+            badgeClass: '',
+            title: 'Entrenamiento & Capacitación',
+            description: 'Programa de desarrollo de misioneros. Liderazgo comunitario, uso de tecnología, habilidades de comunicación y gestión de impacto.',
+            pages: 'Próximamente',
+            readTime: '40 min',
+            sections: '10 secciones',
+            cta: 'Próximamente',
+            link: '#',
+            disabled: true
+          }
+        ]
       }
     };
 
@@ -704,15 +763,15 @@
           
           <div class="card-meta">
             <div class="meta-item-small">
-              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Extensão' : 'Length'}</span>
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Extensão' : (currentLanguage === 'es' ? 'Extensión' : 'Length')}</span>
               <span class="meta-value-small">${playbook.pages}</span>
             </div>
             <div class="meta-item-small">
-              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Leitura' : 'Read'}</span>
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Leitura' : (currentLanguage === 'es' ? 'Lectura' : 'Read')}</span>
               <span class="meta-value-small">${playbook.readTime}</span>
             </div>
             <div class="meta-item-small">
-              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Seções' : 'Sections'}</span>
+              <span class="meta-label-small">${currentLanguage === 'pt-BR' ? 'Seções' : (currentLanguage === 'es' ? 'Secciones' : 'Sections')}</span>
               <span class="meta-value-small">${playbook.sections}</span>
             </div>
           </div>

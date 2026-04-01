@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Playbook del Misionero Digital</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<meta property="og:title" content="Playbook del Misionero Digital - 9forLives">
+<meta property="og:description" content="La guía oficial para misioneros de 9forLives. Su manual de operaciones para transformar vidas.">
+<meta property="og:image" content="images/logo-official.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg-1: #111111;
+    --bg-2: #181818;
+    --bg-3: #1f1f1f;
+    --border: rgba(255,255,255,0.07);
+    --border-md: rgba(255,255,255,0.12);
+    --border-strong: rgba(255,255,255,0.18);
+    --text-1: #f5f5f5;
+    --text-2: #a3a3a3;
+    --text-3: #6b6b6b;
+    --text-4: #444;
+    --accent: #fff;
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.06);
+    --red-border: rgba(239,68,68,0.18);
+    --red-text: #fca5a5;
+    --amber: #f59e0b;
+    --amber-bg: rgba(245,158,11,0.06);
+    --amber-border: rgba(245,158,11,0.18);
+    --amber-text: #fcd34d;
+    --green: #10b981;
+    --green-bg: rgba(16,185,129,0.06);
+    --green-border: rgba(16,185,129,0.18);
+    --green-text: #6ee7b7;
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.06);
+    --blue-border: rgba(59,130,246,0.18);
+    --blue-text: #93c5fd;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --nav-height: 72px;
+    --sidenav-width: 240px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { 
+    background: var(--bg); 
+    color: var(--text-2); 
+    line-height: 1.6; 
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* TOP NAVIGATION */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo img {
+    height: 32px;
+    width: auto;
+  }
+
+  .nav-logo-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-1);
+    letter-spacing: -0.01em;
+  }
+
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 4px;
+    border-radius: 999px;
+  }
+
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-3);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .lang-btn:hover {
+    color: var(--text-1);
+    background: var(--bg-3);
+  }
+
+  .lang-btn.active {
+    background: var(--text-1);
+    color: var(--bg);
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* SIDENAV */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .sidenav {
+    position: fixed; 
+    top: var(--nav-height); 
+    left: 0; 
+    height: calc(100vh - var(--nav-height)); 
+    width: var(--sidenav-width);
+    background: var(--bg-1); 
+    border-right: 1px solid var(--border);
+    padding: 32px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px;
+    z-index: 100; 
+    overflow-y: auto;
+  }
+
+  .sidenav a {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 12px; border-radius: var(--radius-sm);
+    font-size: 13px; color: var(--text-3); text-decoration: none;
+    transition: all 0.15s;
+  }
+  .sidenav a:hover { color: var(--text-1); background: var(--bg-2); }
+  .sidenav a.active { color: var(--text-1); background: var(--bg-3); font-weight: 500; }
+  .sidenav-num {
+    font-size: 10px; font-weight: 600; color: var(--text-4);
+    letter-spacing: 0.04em; min-width: 16px;
+  }
+  .sidenav-divider { height: 1px; background: var(--border); margin: 12px 0; }
+
+  /* ─────────────────────────────────────────────────────────────────────────── */
+  /* MAIN CONTENT */
+  /* ─────────────────────────────────────────────────────────────────────────── */
+
+  .main { margin-left: var(--sidenav-width); }
+  .page { max-width: 840px; margin: 0 auto; padding: 0 40px 80px; }
+
+  header {
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 999px;
+    border: 1px solid var(--border-md); background: var(--bg-2);
+    font-size: 11px; font-weight: 500; color: var(--text-3);
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 32px;
+  }
+  .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-4); }
+  h1 {
+    font-size: clamp(32px, 5vw, 44px); font-weight: 600;
+    color: var(--text-1); letter-spacing: -0.04em; line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .header-sub {
+    font-size: 18px; color: var(--text-2); max-width: 600px;
+    line-height: 1.6; margin-bottom: 56px;
+  }
+  .header-meta {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg);
+    overflow: hidden; background: var(--bg-1);
+  }
+  .meta-item { padding: 24px; border-right: 1px solid var(--border); }
+  .meta-item:last-child { border-right: none; }
+  .meta-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-4); font-weight: 700; margin-bottom: 8px; }
+  .meta-value { font-size: 14px; font-weight: 500; color: var(--text-1); }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  
+  .section-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--text-4); font-weight: 700; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border); max-width: 40px;
+  }
+  h2 {
+    font-size: clamp(24px, 4vw, 32px); font-weight: 600;
+    color: var(--text-1); letter-spacing: -0.03em; line-height: 1.2;
+    margin-bottom: 24px;
+  }
+  .section-intro { font-size: 16px; color: var(--text-2); line-height: 1.7; max-width: 640px; margin-bottom: 56px; }
+
+  .subsection { margin-top: 64px; }
+  .subsection-title {
+    font-size: 13px; font-weight: 600; color: var(--text-3); letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 28px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px;
+  }
+  .card-sm { padding: 24px; border-radius: var(--radius-md); }
+  .card-grid { display: grid; gap: 24px; }
+  .card-grid-2 { grid-template-columns: 1fr 1fr; }
+  .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+  /* Alerts */
+  .alert {
+    border-radius: var(--radius-lg); padding: 32px;
+    display: flex; gap: 24px; align-items: flex-start;
+  }
+  .alert-icon {
+    width: 36px; height: 36px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .alert h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .alert p { font-size: 14px; line-height: 1.6; }
+
+  .alert-red { background: var(--red-bg); border: 1px solid var(--red-border); }
+  .alert-red .alert-icon { background: rgba(239,68,68,0.12); color: var(--red); }
+  .alert-red h3 { color: var(--red-text); }
+  .alert-red p { color: rgba(252,165,165,0.8); }
+
+  .alert-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); }
+  .alert-amber .alert-icon { background: rgba(245,158,11,0.12); color: var(--amber); }
+  .alert-amber h3 { color: var(--amber-text); }
+  .alert-amber p { color: rgba(252,211,77,0.8); }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step { display: flex; gap: 24px; position: relative; }
+  .step::before { content: ''; position: absolute; left: 16px; top: 40px; bottom: 0; width: 1px; background: var(--border); }
+  .step:last-child::before { display: none; }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; z-index: 1;
+    background: var(--bg-2); border: 1px solid var(--border-md); color: var(--text-2);
+  }
+  .step-body { flex: 1; padding: 4px 0 40px; }
+  .step-body h4 { font-size: 16px; font-weight: 600; color: var(--text-1); margin-bottom: 10px; }
+  .step-body p { font-size: 14px; color: var(--text-2); }
+
+  /* Mobile Menu */
+  .menu-btn { 
+    display: none; position: fixed; bottom: 24px; right: 24px; z-index: 1100; 
+    width: 56px; height: 56px; border-radius: 50%; background: var(--text-1); 
+    color: var(--bg); align-items: center; justify-content: center; border: none; 
+    cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,0.4); font-size: 24px; 
+  }
+
+  @media (max-width: 1024px) {
+    .sidenav { transform: translateX(-100%); transition: transform 0.3s ease; }
+    .sidenav.active { transform: translateX(0); }
+    .main { margin-left: 0; }
+    .page { padding: 0 24px 80px; }
+    .menu-btn { display: flex; }
+    .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+    .header-meta { grid-template-columns: 1fr 1fr; }
+  }
+
+
+  /* ── RESTORED MISSING CLASSES ── */
+  .sidenav-logo {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-3); padding: 0 8px; margin-bottom: 20px;
+  }
+  .video-section {
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-md);
+    background: var(--bg-1);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  h3 {
+    font-size: 16px; font-weight: 600; color: var(--text-1);
+    letter-spacing: -0.01em; margin-bottom: 6px;
+  }
+  h4 { font-size: 13px; font-weight: 500; color: var(--text-1); margin-bottom: 6px; }
+  .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .legend-card {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 18px; border-radius: var(--radius-md);
+    border: 1px solid var(--border); background: var(--bg-1);
+  }
+  .legend-icon {
+    width: 32px; height: 32px; border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0; margin-top: 1px;
+  }
+  .legend-card h4 { margin-bottom: 3px; }
+  .legend-card p { font-size: 12px; color: var(--text-3); line-height: 1.5; }
+  .alert-red p, .alert-red li { color: rgba(252,165,165,0.75); font-size: 14px; }
+  .alert-amber p, .alert-amber li { color: rgba(252,211,77,0.75); font-size: 14px; }
+  .alert-blue { background: var(--blue-bg); border: 1px solid var(--blue-border); }
+  .alert-blue .alert-icon { background: rgba(59,130,246,0.12); color: var(--blue); }
+  .alert-blue h3 { color: var(--blue-text); }
+  .alert-blue p, .alert-blue li { color: rgba(147,197,253,0.8); font-size: 14px; }
+  .alert-green { background: var(--green-bg); border: 1px solid var(--green-border); }
+  .alert-green .alert-icon { background: rgba(16,185,129,0.12); color: var(--green); }
+  .alert-green h3 { color: var(--green-text); }
+  .alert-green p, .alert-green li { color: rgba(110,231,183,0.8); font-size: 14px; }
+  .alert p + p { margin-top: 10px; }
+  .alert ul { padding-left: 16px; margin-top: 8px; }
+  .alert li + li { margin-top: 6px; }
+  .tip {
+    padding: 12px 16px; border-radius: var(--radius-md);
+    font-size: 13px; line-height: 1.6; margin-top: 12px;
+  }
+  .tip-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: rgba(252,211,77,0.7); }
+  .tip-amber strong { color: var(--amber-text); }
+  .tip-red { background: var(--red-bg); border: 1px solid var(--red-border); color: rgba(252,165,165,0.7); }
+  .tip-red strong { color: var(--red-text); }
+  .tip-blue { background: var(--blue-bg); border: 1px solid var(--blue-border); color: rgba(147,197,253,0.8); }
+  .tip-blue strong { color: var(--blue-text); }
+  .img-placeholder {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 40px 24px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 10px; text-align: center; margin-bottom: 20px;
+  }
+  .img-placeholder-id {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px; color: var(--text-4);
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .img-placeholder p { font-size: 13px; color: var(--text-3); max-width: 380px; line-height: 1.5; }
+  .img-placeholder figcaption { font-size: 11px; color: var(--text-4); }
+  .img-icon { font-size: 24px; opacity: 0.3; margin-bottom: 4px; }
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .data-table thead tr { background: var(--bg-2); border-bottom: 1px solid var(--border); }
+  .data-table th { padding: 12px 16px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); font-weight: 600; }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .data-table tbody tr:last-child td { border-bottom: none; }
+  .data-table tbody tr:hover { background: rgba(255,255,255,0.015); }
+  .cell-mono { font-family: 'SF Mono', monospace; font-size: 11px; color: var(--text-4); }
+  .cell-green { color: var(--green); font-weight: 500; }
+  .cell-blue { color: var(--blue-text); font-weight: 500; }
+  .feat-table { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .feat-row { display: flex; gap: 0; border-bottom: 1px solid var(--border); }
+  .feat-row:last-child { border-bottom: none; }
+  .feat-row.highlight { background: rgba(239,68,68,0.04); border-left: 2px solid var(--red); }
+  .feat-key { width: 200px; flex-shrink: 0; padding: 16px 20px; font-size: 13px; font-weight: 500; color: var(--text-1); border-right: 1px solid var(--border); background: rgba(255,255,255,0.015); }
+  .feat-val { flex: 1; padding: 16px 20px; font-size: 13px; color: var(--text-2); line-height: 1.6; }
+  .tab-cards { display: flex; flex-direction: column; gap: 10px; }
+  .tab-card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 28px;
+    display: flex; gap: 28px;
+  }
+  .tab-card.featured { border-color: var(--border-md); background: var(--bg-2); }
+  .tab-side { width: 160px; flex-shrink: 0; }
+  .tab-num { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--text-4); margin-bottom: 6px; font-family: 'SF Mono', monospace; }
+  .tab-name { font-size: 20px; font-weight: 600; color: var(--text-1); letter-spacing: -0.02em; margin-bottom: 4px; }
+  .tab-sub { font-size: 12px; color: var(--text-3); }
+  .tab-body { flex: 1; }
+  .tab-body p { font-size: 14px; color: var(--text-2); line-height: 1.65; margin-bottom: 12px; }
+  .tab-note { font-size: 12px; color: var(--text-3); font-style: italic; }
+  .tab-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .tab-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-2); list-style: none; }
+  .tab-list li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--text-4); margin-top: 7px; flex-shrink: 0; }
+  .kanban { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .kanban-col { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; }
+  .kanban-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .kanban-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .kanban-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; color: var(--text-2); }
+  .kanban-body { font-size: 13px; color: var(--text-3); line-height: 1.6; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .kpi-card { background: var(--bg-2); border-radius: var(--radius-md); padding: 16px 18px; }
+  .kpi-label { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
+  .kpi-value { font-size: 15px; font-weight: 600; color: var(--text-1); margin-bottom: 4px; }
+  .kpi-desc { font-size: 11px; color: var(--text-4); line-height: 1.5; }
+  .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+  .step-num.critical { background: rgba(239,68,68,0.12); border-color: var(--red-border); color: var(--red); }
+  .step-body .step-sub { font-size: 13px; color: var(--text-3); margin-top: 8px; line-height: 1.6; }
+  .script-box {
+    margin-top: 12px; padding: 14px 16px;
+    background: var(--bg-2); border: 1px solid var(--border-md);
+    border-radius: var(--radius-md); font-size: 13px; color: var(--text-2); font-style: italic; line-height: 1.65;
+  }
+  .script-box.critical { background: rgba(239,68,68,0.06); border-color: var(--red-border); color: rgba(252,165,165,0.75); }
+  .checklist { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .check-item { display: flex; align-items: center; gap: 14px; padding: 13px 18px; border-bottom: 1px solid var(--border); }
+  .check-item:last-child { border-bottom: none; }
+  .check-item.critical-item { background: rgba(239,68,68,0.04); border-left: 2px solid var(--red); }
+  .check-box { width: 16px; height: 16px; border: 1px solid var(--border-md); border-radius: 4px; flex-shrink: 0; background: var(--bg-2); }
+  .check-box.crit { border-color: var(--red-border); background: rgba(239,68,68,0.1); }
+  .check-text { font-size: 13px; color: var(--text-2); }
+  .check-text.crit-text { color: var(--red-text); font-weight: 500; }
+  .check-badge {
+    margin-left: auto; font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    font-weight: 600; letter-spacing: 0.04em; flex-shrink: 0;
+    background: rgba(239,68,68,0.1); color: var(--red); border: 1px solid var(--red-border);
+  }
+  .av-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .av-card { background: var(--bg-1); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+  .av-icon { font-size: 20px; margin-bottom: 12px; opacity: 0.7; }
+  .av-card h4 { color: var(--text-1); margin-bottom: 8px; }
+  .av-card p { font-size: 13px; color: var(--text-3); line-height: 1.6; }
+  .credo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .credo-card {
+    background: var(--bg-1); border: 1px solid var(--border);
+    border-radius: var(--radius-xl); padding: 28px 24px; position: relative; overflow: hidden;
+  }
+  .credo-num {
+    position: absolute; right: -8px; top: -16px; font-size: 80px; font-weight: 700;
+    color: rgba(255,255,255,0.03); line-height: 1; user-select: none; pointer-events: none;
+  }
+  .credo-card h3 { font-size: 15px; color: var(--text-1); margin-bottom: 10px; position: relative; }
+  .credo-card p { font-size: 13px; color: var(--text-3); line-height: 1.65; position: relative; }
+  footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer span { font-size: 12px; color: var(--text-4); }
+  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+  @media (max-width: 1024px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .kanban { grid-template-columns: 1fr; }
+    .credo-grid { grid-template-columns: 1fr; }
+    .av-grid { grid-template-columns: 1fr; }
+    .tab-card { flex-direction: column; gap: 16px; }
+    .tab-side { width: auto; }
+    .feat-row { flex-direction: column; }
+    .feat-key { width: auto; border-right: none; border-bottom: 1px solid var(--border); }
+    .legend-grid { grid-template-columns: 1fr; }
+    .card-grid-4 { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-official.png" alt="9forLives">
+        <span class="nav-logo-text">Knowledge Center</span>
+      </a>
+      
+      <div class="lang-switch">
+        <a href="operations-en.html" class="lang-btn">EN</a>
+        <a href="operations-pt.html" class="lang-btn">PT</a>
+        <a href="operations-es.html" class="lang-btn active">ES</a>
+      </div>
+    </div>
+  </nav>
+
+<!-- SIDENAV -->
+<nav class="sidenav">
+<a href="#tutorial">Tutorial</a>
+<a href="#legenda">Leyenda</a>
+<a href="#intro"><span class="sidenav-num">01</span> Acceso & Perfil</a>
+<a href="#mod2"><span class="sidenav-num">02</span> Tablero</a>
+<a href="#mod3"><span class="sidenav-num">03</span> Navegación</a>
+<a href="#mod4"><span class="sidenav-num">04</span> Registro</a>
+<a href="#mod5"><span class="sidenav-num">05</span> Video</a>
+<a href="#credo">Credo</a>
+</nav>
+
+<!-- Mobile Menu -->
+<button class="menu-btn">☰</button>
+
+<!-- MAIN -->
+<div class="main">
+<div class="page">
+<!-- HEADER -->
+<header>
+<div class="badge">
+<span class="badge-dot"></span>
+    Uso interno · Solo misioneros aprobados
+  </div>
+<h1>Playbook de Operaciones & Aplicación</h1>
+<p class="header-sub">Guía operativa completa para la gestión de beneficiarios, logística de entregas y rendición de cuentas en la plataforma 9forLives.</p>
+<div class="header-meta">
+<div class="meta-item">
+<div class="meta-label">Versión</div>
+<div class="meta-value">4.0 — Definitiva</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Módulos</div>
+<div class="meta-value">5 Módulos</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Clasificación</div>
+<div class="meta-value">Confidencial</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Público</div>
+<div class="meta-value">Aprobados</div>
+</div>
+</div>
+</header>
+
+<!-- ─── VIDEO TUTORIAL ─── -->
+<section id="tutorial" class="video-section">
+  <div class="section-label">Tutorial Oficial</div>
+  <h2>La Visión y el Sistema</h2>
+  <p class="section-intro">Antes de operar, entienda su papel en la batalla logística del Acto 5. 9forLives no es solo una plataforma, es la infraestructura permanente para que la Biblia llegue a todos.</p>
+  
+  <div class="video-wrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yigPr6ee1oY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- ─── LEGENDA ─── -->
+<section id="legenda">
+<div class="section-label">Guía de Lectura</div>
+<h2>Cómo leer este manual</h2>
+<p class="section-intro">Para facilitar la lectura dinámica y la toma de decisiones en el campo, utilice la leyenda a continuación en todas las secciones.</p>
+<div class="legend-grid">
+<div class="legend-card">
+<div class="legend-icon" style="background:var(--bg-2);border:1px solid var(--border);color:var(--text-2);">⬡</div>
+<div><h4>Navegación</h4><p>Dónde debe hacer clic o a qué pantalla acceder</p></div>
+</div>
+<div class="legend-card">
+<div class="legend-icon" style="background:var(--bg-2);border:1px solid var(--border);color:var(--text-2);">ℹ</div>
+<div><h4>Contexto estratégico</h4><p>El porqué de la funcionalidad y cómo afecta al sistema</p></div>
+</div>
+<div class="legend-card" style="border-color:var(--red-border);background:var(--red-bg);">
+<div class="legend-icon" style="background:rgba(239,68,68,0.12);border:1px solid var(--red-border);color:var(--red);">!</div>
+<div><h4 style="color:var(--red-text);">Regla de oro</h4><p style="color:rgba(252,165,165,0.65);">Reglas innegociables. El incumplimiento genera fallas logísticas</p></div>
+</div>
+<div class="legend-card" style="border-color:var(--amber-border);background:var(--amber-bg);">
+<div class="legend-icon" style="background:rgba(245,158,11,0.12);border:1px solid var(--amber-border);color:var(--amber);">✦</div>
+<div><h4 style="color:var(--amber-text);">Consejo de campo</h4><p style="color:rgba(252,211,77,0.65);">Mejores prácticas para aumentar la eficiencia del trabajo</p></div>
+</div>
+<div class="legend-card" style="border-color:var(--green-border);background:var(--green-bg);">
+<div class="legend-icon" style="background:rgba(16,185,129,0.12);border:1px solid var(--green-border);color:var(--green);">✓</div>
+<div><h4 style="color:var(--green-text);">Checklist</h4><p style="color:rgba(110,231,183,0.65);">Acciones de verificación obligatoria antes de continuar</p></div>
+</div>
+</div>
+</section>
+<!-- ─── MÓDULO 1 ─── -->
+<section id="intro">
+<div class="section-label">Módulo 01</div>
+<h2>Acceso, internacionalización y su "hub" logístico</h2>
+<p class="section-intro">El sistema es su oficina virtual. Conecta la necesidad real en el campo con financiadores de todo el mundo.</p>
+<!-- 1.1 -->
+<div class="subsection">
+<div class="subsection-title">1.1 — Pantalla de autenticación (login)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la pantalla de login del sistema — campos de correo y contraseña visibles" src="images/img_tela_login-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Pantalla de login — ingrese el correo principal registrado y su contraseña</figcaption></figure>
+<div class="card-grid card-grid-2">
+<div class="card card-sm">
+<h4>Acción</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Ingrese el correo principal registrado y su contraseña en la pantalla de login.</p>
+</div>
+<div class="card card-sm">
+<h4>Contexto</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Su correo es su llave de seguridad y trazabilidad. Todas las operaciones realizadas en este login son su entera responsabilidad ante la organización.</p>
+</div>
+</div>
+</div>
+<!-- 1.2 -->
+<div class="subsection">
+<div class="subsection-title">1.2 — Internacionalización (idiomas)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura del selector de idiomas en el menú del sistema — desplegable con opciones de idiomas disponibles" src="images/img_seletor_idiomas-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Selector de idiomas — disponible en el menú principal</figcaption></figure>
+<div class="card-grid card-grid-2">
+<div class="card card-sm">
+<h4>Acción</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Utilice el selector de idiomas en el menú para cambiar el idioma del panel.</p>
+</div>
+<div class="card card-sm">
+<h4>Contexto</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Como la plataforma opera en múltiples países, gestione el panel en el idioma en el que sea más fluido — esto evita errores de interpretación, especialmente en el registro de beneficiarios.</p>
+</div>
+</div>
+</div>
+<!-- 1.3 -->
+<div class="subsection">
+<div class="subsection-title">1.3 — Su perfil (la base de la operación)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la pantalla de Mi Perfil — campos de datos misioneros, dirección de entrega y documentos" src="images/img_meu_perfil-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Pantalla Mi Perfil — donde se encuentran sus datos, dirección y documentos</figcaption></figure>
+<div class="card-grid card-grid-2" style="margin-bottom:20px;">
+<div class="card card-sm">
+<h4>Acción</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Acceda a "Mi Perfil" en el menú superior. Aquí se encuentran sus datos misioneros, formación y documentos de credibilidad.</p>
+</div>
+<div class="card card-sm">
+<h4>Contexto</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;">Los documentos adjuntos certifican su idoneidad ante la organización y los grandes donantes institucionales. Un perfil completo y documentado transmite confianza y puede aumentar la velocidad de aprobación de sus operaciones. Manténgalo siempre actualizado.</p>
+</div>
+</div>
+
+<div style="margin-bottom:24px;">
+  <h4 style="margin-bottom:12px;color:var(--text-1);">Perfil del Misionero</h4>
+  <p style="font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:16px;">Esta sección muestra sus datos de identificación como misionero — su nombre, región de actuación, estado de registro y los documentos que comprueban sus credenciales ante la organización y los donantes institucionales. Un perfil completo aumenta la velocidad con la que se aprueban sus operaciones y demuestra responsabilidad ante los financiadores que revisan su historial.</p>
+  <figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la pantalla de Mi Perfil — campos de datos misioneros, dirección de entrega y documentos" src="images/img_mis_profile-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Pantalla Mi Perfil — donde se encuentran sus datos, dirección y documentos</figcaption></figure>
+</div>
+
+<div class="alert alert-red" style="margin-bottom:16px;">
+<div class="alert-icon">!</div>
+<div>
+<h3 style="margin-bottom:10px;">Regla de oro logística #01 — La dirección de entrega</h3>
+<p>La dirección registrada en su perfil es la <strong style="color:var(--red-text);">única</strong> dirección reconocida por el sistema para envíos físicos.</p>
+<p><strong style="color:var(--red-text);">La mecánica:</strong> No enviamos Biblias a la casa del beneficiario final. Todas las Biblias y Audio Biblias financiadas se enviarán a <em>su</em> dirección — sin excepción.</p>
+<p><strong style="color:var(--red-text);">Su papel:</strong> Usted actúa como un hub logístico local. Usted recibe la caja, la almacena temporalmente y realiza la entrega final (última milla) en manos de cada beneficiario personalmente.</p>
+</div>
+</div>
+<div class="checklist">
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">¿El código postal es correcto?</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">¿La calle y el número son correctos?</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">¿El complemento está completo (apto, bloque, referencia)?</span>
+</div>
+</div>
+<p style="font-size:12px;color:var(--text-4);margin-top:10px;">Un error aquí significa Biblias perdidas — sin posibilidad de recuperación.</p>
+</div>
+</section>
+<!-- ─── MÓDULO 2 ─── -->
+<section id="mod2">
+<div class="section-label">Módulo 02</div>
+<h2>El tablero — centro de inteligencia</h2>
+<p class="section-intro">Al iniciar sesión, llegará al tablero. Proporciona una radiografía en tiempo real de todo su impacto misionero.</p>
+<!-- 2.1 -->
+<div class="subsection">
+<div class="subsection-title">2.1 — Indicadores de rendimiento (KPIs superiores)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura del tablero con los cuatro bloques de KPI visibles en la parte superior — número de beneficiários, missões ativas, operações pendentes, total de entregas" src="images/img_dashboard_kpis-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="kpi-grid">
+<div class="kpi-card">
+<div class="kpi-label">Beneficiarios</div>
+<div class="kpi-value">Total registrados</div>
+<div class="kpi-desc">Esperando o ya con Biblias</div>
+</div>
+<div class="kpi-card">
+<div class="kpi-label">Misiones activas</div>
+<div class="kpi-value">En curso</div>
+<div class="kpi-desc">Proyectos en marcha en este momento</div>
+</div>
+<div class="kpi-card">
+<div class="kpi-label">Op. pendientes</div>
+<div class="kpi-value">Esperando acción</div>
+<div class="kpi-desc">Solicitudes bloqueadas que le necesitan</div>
+</div>
+<div class="kpi-card">
+<div class="kpi-label">Total de entregas</div>
+<div class="kpi-value">Su trofeo</div>
+<div class="kpi-desc">Biblias entregadas con video comprobado</div>
+</div>
+</div>
+</div>
+<!-- 2.2 -->
+<div class="subsection">
+<div class="subsection-title">2.2 — El kanban de operaciones (seguimiento logístico)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura del kanban de operaciones en la parte inferior del tablero — três colunas visíveis: Aguardando, Em Trânsito, Aguardando Vídeo" src="images/img_dashboard_kanban-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="tip tip-blue" style="margin-bottom:20px;">
+      Es un tablero de flujo de trabajo automático. Usted no mueve las tarjetas — el sistema las mueve. Su papel es seguir y actuar cuando una tarjeta entre en la <strong>Columna 3</strong>.
+    </div>
+<div class="kanban">
+<div class="kanban-col">
+<div class="kanban-header">
+<div class="kanban-dot" style="background:var(--text-4);"></div>
+<span class="kanban-title">Esperando</span>
+</div>
+<div class="kanban-body">El pedido existe, pero no hay fondos. Estamos buscando un donante.</div>
+</div>
+<div class="kanban-col">
+<div class="kanban-header">
+<div class="kanban-dot" style="background:var(--blue);"></div>
+<span class="kanban-title">En tránsito</span>
+</div>
+<div class="kanban-body">¡Alguien financió! El material ha sido enviado a su dirección.</div>
+</div>
+<div class="kanban-col" style="border-color:var(--green-border);background:var(--green-bg);">
+<div class="kanban-header">
+<div class="kanban-dot" style="background:var(--green);"></div>
+<span class="kanban-title" style="color:var(--green-text);">Esperando video</span>
+</div>
+<div class="kanban-body" style="color:rgba(110,231,183,0.75);">La transportadora avisó que el paquete llegó a su casa. El balón está en su campo.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── MÓDULO 3 ─── -->
+<section id="mod3">
+<div class="section-label">Módulo 03</div>
+<h2>Arquitectura de pestañas — navegación avanzada</h2>
+<p class="section-intro">En el menú superior hay tres pestañas fundamentales. Es vital no confundirlas — cada una tiene una función completamente diferente y un momento de uso distinto en el día a día.</p>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura del menú superior del sistema mostrando las três abas: Beneficiários, Requisições e Operações" src="images/img_menu_abas-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="tab-cards">
+<div class="tab-card">
+<div class="tab-side">
+<div class="tab-num">Pestaña 01</div>
+<div class="tab-name">Beneficiarios</div>
+<div class="tab-sub">Su CRM / base de datos</div>
+</div>
+<div class="tab-body">
+<p>La lista de todos los seres humanos que ha registrado. Al hacer clic en un nombre, verá el historial completo del beneficiario.</p>
+<ul class="tab-list">
+<li>Historial completo de cada beneficiario</li>
+<li>Su dirección — para que trace la ruta de entrega</li>
+<li>Campo para video de testimonio extra (acelera el financiamiento)</li>
+</ul>
+</div>
+</div>
+<div class="tab-card">
+<div class="tab-side">
+<div class="tab-num">Pestaña 02</div>
+<div class="tab-name">Solicitudes</div>
+<div class="tab-sub">Fila de espera / Sala del milagro</div>
+</div>
+<div class="tab-body">
+<p>Solo pedidos recién creados sin financiamiento. El pedido existe, pero espera un donante.</p>
+<div class="tip tip-amber">
+<strong>Consejo:</strong> Si una solicitud lleva mucho tiempo sin financiamiento, agregue un audio de historia o video de testimonio al beneficiario. Cuanto más real y visible sea la necesidad, más fácilmente un financiador se reconocerá como la persona adecuada para hacer posible esa entrega.
+        </div>
+</div>
+</div>
+<div class="tab-card featured" style="border-color:var(--border-strong);">
+<div class="tab-side">
+<div class="tab-num" style="color:var(--text-2);">Pestaña 03 — La más importante</div>
+<div class="tab-name">Operaciones</div>
+<div class="tab-sub">Su área de trabajo diaria</div>
+</div>
+<div class="tab-body">
+<p>La pestaña más importante del panel. Aquí solo entra lo que ya tiene dueño y ya ha sido pagado. Una operación existe en esta pestaña solo cuando una solicitud ha sido financiada.</p>
+<ul class="tab-list">
+<li>Sigue el viaje de la Biblia hasta su dirección</li>
+<li>Consulta el nombre exacto de los financiadores antes de ir al campo</li>
+<li>Realiza la carga del video final de comprobación de la entrega</li>
+</ul>
+
+<div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border-md);">
+  <h4 style="font-size:16px;color:var(--text-1);margin-bottom:8px;">Perfil de la Operación</h4>
+  <p style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:16px;">Al hacer clic en cualquier operación, abre su perfil completo. Dentro encontrará: el nombre y los datos de registro del beneficiario, el tipo de producto enviado (Biblia Impresa o Audio Biblia), el o los financiadores responsables de esa donación, el estado actual del envío y la sesión de video donde enviará la comprobación de la entrega. Cada operación es una unidad de rendición de cuentas cerrada — solo avanza a completada después de la confirmación del video.</p>
+  <figure class="img-container" style="margin-bottom: 16px;"><img alt="Captura del perfil de una operación abierta — exibindo dados do beneficiário, nomes dos financiadores, status do envio e sessão de vídeo" src="images/img_operacao_profile-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Perfil de la operación — todo lo que necesita saber y hacer para una sola entrega</figcaption></figure>
+</div>
+
+<p class="tab-note" style="margin-top:12px;">Si la Biblia llegó y necesita grabar el video, siempre estará en esta pestaña. Nunca en las otras.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── MÓDULO 4 ─── -->
+<section id="mod4">
+<div class="section-label">Módulo 04</div>
+<h2>Registro de beneficiarios — el embudo de entrada</h2>
+<p class="section-intro">Este es el momento de ingresar una nueva vida al sistema. Cada dato solicitado aquí alimenta el big data de la organización y afecta directamente la logística de producción y entrega.</p>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt='Captura del botón "Cadastro de Beneficiário" no painel principal do sistema' src="images/img_botao_cadastro-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Haga clic en Registro de Beneficiario para iniciar el formulario</figcaption></figure>
+<!-- 4.1 -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.1 — Datos personales básicos</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la primera etapa del formulario de registro — campos de nome, sobrenome, data de nascimento, gênero e CPF/ID" src="images/img_cadastro_dados_basicos-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="feat-table">
+<div class="feat-row">
+<div class="feat-key">Nombre y apellido</div>
+<div class="feat-val">Adáptelo si es muy largo, mas garantice la identificación clara y única de la persona en el sistema.</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Fecha de nacimiento</div>
+<div class="feat-val">
+          Complete con día, mes y año. Se utiliza para el cálculo de edad y campañas de aniversario.
+          <div class="tip tip-amber" style="margin-top:10px;">
+<strong>Consejo:</strong> Si la persona no sabe el año exacto — común en regiones remotas — calcúlelo por la apariencia y use un día/mes estándar. Lo importante es tener una referencia de rango de edad.
+          </div>
+</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Género</div>
+<div class="feat-val">Seleccione Masculino o Femenino. Campo obligatorio para informes estadísticos.</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">DNI / ID nacional</div>
+<div class="feat-val">En otros países, utilice el documento equivalente — pasaporte, cédula, etc. No es bloqueante — el registro puede completarse sin documento.</div>
+</div>
+</div>
+</div>
+
+<!-- 4.1b -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.1b — Rango de Edad e Idioma</div>
+<div class="feat-table">
+  <div class="feat-row">
+    <div class="feat-key">¿El beneficiario es niño o adulto?</div>
+    <div class="feat-val">
+      Seleccione Niño o Adulto antes de continuar.
+      <div class="tip tip-blue" style="margin-top:10px;">
+        <strong>Contexto:</strong> Esta selección determina directamente qué formato de Biblia se producirá. Si el beneficiario es un niño, la Biblia en Audio Infantil se aplicará automáticamente — no es necesaria ninguna selección adicional.
+      </div>
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px;"><strong>Regla:</strong> Niño seleccionado → Biblia en Audio Infantil asignada automáticamente. Adulto seleccionado → producto definido por la capacidad de lectura (ver Etapa 4.4).</p>
+    </div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-key">Idioma del Beneficiario</div>
+    <div class="feat-val">
+      Busque y seleccione el idioma hablado por el beneficiario para que la Biblia esté disponible en el idioma correcto.
+      <div class="tip tip-amber" style="margin-top:10px;">
+        <strong>Contexto:</strong> La plataforma admite Biblias en múltiples idiomas. Seleccionar el idioma correcto garantiza que el beneficiario reciba una versión que realmente pueda entender y utilizar. Use el campo de búsqueda para encontrar el idioma — no lo suponga ni lo deje en blanco.
+      </div>
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px;"><strong>Consejo:</strong> Si la persona habla un dialecto regional o un idioma menos común, seleccione el idioma oficial más cercano y agregue una nota en el campo de Información Adicional.</p>
+    </div>
+  </div>
+  <div class="feat-row">
+    <div class="feat-key">Teléfono de Contacto del Beneficiario</div>
+    <div class="feat-val">
+      Si el beneficiario tiene su propio número de teléfono, ingréselo aquí para permitir el contacto directo.
+      <p style="font-size:12px;color:var(--text-3);margin-top:8px;"><strong>Nota:</strong> Este campo es diferente al contacto de referencia. Si el beneficiario tiene teléfono, registrarlo aquí permite que la organización y usted se pongan en contacto directamente cuando sea necesario. Si no tiene, deje este campo en blanco y use el contacto de referencia registrado en la Etapa 4.2.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 4.2 -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.2 — Contacto e ingeniería de ubicación</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt='Captura de la etapa de contacto — campo "¿Tiene Contacto?" con Sí/No y campo de dirección' src="images/img_cadastro_adress-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="feat-table">
+<div class="feat-row">
+<div class="feat-key">¿Tiene contacto? (Sí/No)</div>
+<div class="feat-val">
+<div class="tip tip-amber">
+<strong>Aviso:</strong> Pueden pasar semanas entre el registro y la llegada de la Biblia. Si el beneficiario no tiene teléfono, registre el de un vecino, pariente cercano o líder de la iglesia. Necesita un medio confiable para localizarlo. Este contacto no tiene que ser el propio beneficiario.
+          </div>
+</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Dirección del beneficiario</div>
+<div class="feat-val">La dirección donde duerme. Sirve estrictamente para que usted — el misionero — trace su ruta de entrega local. El envío del producto siempre se realizará a <em>su</em> dirección en el perfil. Si el beneficiario no tiene dirección fija, marque No y use el contacto de referencia.</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Contacto WhatsApp</div>
+<div class="feat-val">
+  Si el beneficiario o su contacto de referencia utilizan WhatsApp, registre el número aquí.
+  <figure class="img-container" style="margin-top: 12px; margin-bottom: 12px;"><img alt="Captura del campo de contacto WhatsApp en el formulario de registro" src="images/img_cadastro_whatsapp-pt.svg" style="width:100%; border-radius:var(--radius-md); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 6px; font-size: 11px; color: var(--text-4);">Campo WhatsApp — regístrelo si está disponible para facilitar la comunicación</figcaption></figure>
+  <div class="tip tip-green">
+    <strong>Consejo:</strong> WhatsApp suele ser el medio de contacto más confiable en regiones remotas. Un mensaje rápido con el pin de ubicación o una nota de voz puede ahorrar horas de búsqueda al momento de la entrega.
+  </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4.3 -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.3 — Inteligencia demográfica (sin filtros)</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la etapa de perfil social — campos de estado civil, escolaridad y religión" src="images/img_cadastro_demografico-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="feat-table" style="margin-bottom:16px;">
+<div class="feat-row"><div class="feat-key">Estado civil</div><div class="feat-val">Seleccione el estado civil actual de la persona.</div></div>
+<div class="feat-row"><div class="feat-key">Escolaridad</div><div class="feat-val">Seleccione el nivel de escolaridad.</div></div>
+<div class="feat-row"><div class="feat-key">Religión</div><div class="feat-val">Seleccione o informe la religión declarada.</div></div>
+</div>
+<div class="alert alert-blue">
+<div class="alert-icon">ℹ</div>
+<div>
+<h3 style="margin-bottom:8px;">Contexto cumplimiento — ¿por qué pedimos estos datos?</h3>
+<p>Estas preguntas <strong style="color:var(--blue-text);">no</strong> clasifican ni excluyen a nadie. El financiamiento ocurre independientemente de la religión, escolaridad o estado civil.</p>
+<p>Sirven exclusivamente para la generación de informes estadísticos internos. Regla clara e inegociable: no existe restricción de entrega. La Biblia debe entregarse a cualquier persona, de cualquier creencia, sin juicios.</p>
+</div>
+</div>
+</div>
+<!-- 4.4 -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.4 — Socioeconomía y la "regla del producto"</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la etapa socioeconómica — campos de membros da família, faixa de renda e capacidade de leitura" src="images/img_cadastro_socioeconomia-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="feat-table" style="margin-bottom:16px;">
+<div class="feat-row">
+<div class="feat-key">Miembros de la familia</div>
+<div class="feat-val">¿Cuántas personas viven bajo el mismo techo? Mide el impacto indirecto — una sola Biblia puede transformar la vida de 5, 8 o 10 personas.</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Rango de ingresos anuales</div>
+<div class="feat-val">Seleccione el rango aproximado. Use Reales para Brasil, Dólares para los demás países.</div>
+</div>
+<div class="feat-row highlight">
+<div class="feat-key" style="color:var(--red-text);">Capacidade de leitura</div>
+<div class="feat-val">
+<div class="tip tip-red">
+<strong>Campo crítico:</strong> Este es el campo más crítico del registro. Determina directamente el producto que será fabricado y enviado. Un error aquí es irreversible y genera costos logísticos para toda la cadena.
+          </div>
+          <p style="font-size:12px;color:var(--text-3);margin-top:8px;"><strong>Nota:</strong> Este campo se aplica solo a beneficiarios adultos. Si el beneficiario fue registrado como niño, este campo se ignora — la Biblia en Audio Infantil se asigna automáticamente.</p>
+</div>
+</div>
+</div>
+<div class="alert alert-red" style="margin-bottom:16px;">
+<div class="alert-icon">!</div>
+<div style="width:100%;">
+<h3 style="margin-bottom:12px;">Regla de oro logística #02 — la capacidad de lectura define el producto</h3>
+<p style="margin-bottom:16px;">Preste mucha atención al completar este campo, ya que esto define lo que será fabricado y enviado.</p>
+<div style="border:1px solid var(--red-border);border-radius:var(--radius-md);overflow:hidden;">
+<table class="data-table" style="border:none;">
+<thead>
+<tr style="background:rgba(239,68,68,0.08);">
+<th style="color:var(--red-text);">Escenario</th>
+<th style="color:var(--red-text);">País</th>
+<th style="color:var(--red-text);">Capacidad de lectura</th>
+<th style="color:var(--red-text);">Producto enviado</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="cell-mono">A</td><td>Brasil 🇧🇷</td><td>Lee y entiende</td><td class="cell-green">Biblia impresa (física)</td></tr>
+<tr><td class="cell-mono">B</td><td>Brasil 🇧🇷</td><td>No lee / Lectura limitada / Discapacidad visual o cognitiva</td><td class="cell-blue">Audio biblia</td></tr>
+<tr><td class="cell-mono">C</td><td>Fuera de Brasil 🌍</td><td>Cualquier nivel de lectura</td><td class="cell-blue">Audio biblia</td></tr>
+</tbody>
+</table>
+</div>
+<div class="tip tip-red" style="margin-top:12px;">
+<strong>Atención — Escenario A:</strong> Si la persona en Brasil puede leer y entender, debe recibir la Biblia Impresa. Marcar lectura limitada para alguien que sabe leer es un error grave — genera la fabricación del producto incorrecto y desperdicio de recursos.
+        </div>
+</div>
+</div>
+</div>
+<!-- 4.5 -->
+<div class="subsection">
+<div class="subsection-title">Etapa 4.5 — Finalización</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la etapa final — campos de referências, áudio extra e botão Finalizar Cadastro" src="images/img_cadastro_extras-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/></figure>
+<div class="feat-table" style="margin-bottom:16px;">
+<div class="feat-row">
+<div class="feat-key">Referencias</div>
+<div class="feat-val">Agregue nombres de amigos, vecinos o líderes religiosos con teléfono. Crea una red de apoyo para localizar a la persona cuando llegue la Biblia.</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Audio extra <span style="font-size:10px;font-weight:400;color:var(--text-4);margin-left:6px;">Opcional</span></div>
+<div class="feat-val">
+          Grabe un audio corto contando la historia de vida y la lucha de esa persona.
+          <div class="tip tip-amber" style="margin-top:10px;">
+<strong>Consejo de oro:</strong> Esto transforma un registro en una historia real. Un beneficiario con rostro y trayectoria ya no es un número en la fila — es una vida específica, con una necesidad específica, esperando por alguien dispuesto a ser parte. El audio es la forma más poderosa de presentar esa realidad.
+          </div>
+</div>
+</div>
+<div class="feat-row">
+<div class="feat-key">Información adicional <span style="font-size:10px;font-weight:400;color:var(--text-4);margin-left:6px;">Opcional</span></div>
+<div class="feat-val">Complete si hay alguna información relevante sobre la situación del beneficiario que no encaje en los campos anteriores.</div>
+</div>
+</div>
+<div class="card card-sm" style="margin-bottom:16px;">
+<h4>Acción final</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:4px;">Haga clic en "Finalizar Registro". La solicitud se crea instantáneamente. El beneficiario entra en la fila de espera, la solicitud aparece en la pestaña Solicitudes y el sistema comienza a buscar un donante automáticamente.</p>
+</div>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la pantalla después de finalizar el registro — confirmação de criação da requisição" src="images/img_requisicao_criada-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Confirmación — la solicitud se crea instantáneamente después del registro</figcaption></figure>
+</div>
+</section>
+<!-- ─── MÓDULO 5 ─── -->
+<section id="mod5">
+<div class="section-label">Módulo 05</div>
+<h2>El video de rendición de cuentas — el corazón de la operación</h2>
+<p class="section-intro">La donación no termina cuando el beneficiario recibe la Biblia; termina cuando el financiador ve el video. Sin este cierre de ciclo, el sistema de confianza se rompe y su perfil puede ser impedido de generar nuevas operaciones.</p>
+<!-- 5.1 -->
+<div class="subsection">
+<div class="subsection-title">5.1 — El propósito y el objetivo central del video</div>
+<div class="card-grid" style="gap:10px;margin-bottom:0;">
+<div class="card card-sm" style="display:flex;gap:16px;align-items:flex-start;">
+<div style="width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border-md);background:var(--bg-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">🛡</div>
+<div>
+<h4>La prueba de vida (cumplimiento absoluto)</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:4px;">Es la prueba irrefutable de que el dinero del donante no fue desviado, de que la Biblia llegó al destino correcto y de que el beneficiario registrado es real. Sin este video, la donación no tiene comprobación jurídica o moral.</p>
+</div>
+</div>
+<div class="card card-sm" style="display:flex;gap:16px;align-items:flex-start;">
+<div style="width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border-md);background:var(--bg-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">♡</div>
+<div>
+<h4>El recibo emocional</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:4px;">Para quien financió desde el otro lado del mundo, ver la sonrisa y escuchar la voz del beneficiario es la confirmación de que su decisión generó un acceso real a la Palabra. El video cierra el ciclo de responsabilidad entre quien lo hizo posible y quien recibió.</p>
+</div>
+</div>
+<div class="card card-sm" style="display:flex;gap:16px;align-items:flex-start;">
+<div style="width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border-md);background:var(--bg-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">★</div>
+<div>
+<h4>Su credibilidad y score oculto</h4>
+<p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:4px;">Los misioneros que entregan videos con cuidado y autenticidad construyen una historia real de fidelidad ante los financiadores. Sus próximas solicitudes entran en una fila de prioridad natural — el sistema reconoce a quien honra el compromiso.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 5.2 -->
+<div class="subsection">
+<div class="subsection-title">5.2 — Preparación (antes de presionar REC)</div>
+<p style="font-size:14px;color:var(--text-3);font-style:italic;border-left:2px solid var(--border-strong);padding-left:16px;margin-bottom:24px;line-height:1.65;">"El ciclo de responsabilidad no termina cuando el beneficiario recibe la Biblia — termina cuando el donante tiene en sus manos la prueba de que su decisión generó acceso real a la Palabra."</p>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la pantalla de una operación abierta mostrando los nombres de los financiadores y el botón de carga de video" src="images/img_operacao_financiadores-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Pantalla de operación — anote el nombre de los financiadores antes de salir al campo</figcaption></figure>
+<div class="steps">
+<div class="step">
+<div class="step-left"><div class="step-num">1</div></div>
+<div class="step-body">
+<h4>En el sistema — antes de salir al campo</h4>
+<p>Abra la pestaña Operaciones, haga clic en la entrega que se realizará y <strong style="color:var(--text-1);">anote el nombre exacto de los financiadores</strong>.</p>
+<p class="step-sub">Puede haber 1, 2 o hasta 3 nombres — esto se llama Split Funding, cuando varias personas dividen el costo de una Biblia. Necesitará mencionar todos los nombres en el video. Nunca omita ninguno.</p>
+</div>
+</div>
+<div class="step">
+<div class="step-left"><div class="step-num">2</div></div>
+<div class="step-body">
+<h4>Con el beneficiario — antes de grabar</h4>
+<p>Explique qué sucederá antes de encender la cámara. Use este enfoque:</p>
+<div class="script-box">"Esta Biblia fue pagada por personas que aman a Dios y quieren bendecirle. Necesito grabar un video rápido de agradecimiento para enviárselo. ¿Está bien?"</div>
+<p class="step-sub" style="margin-top:10px;">Esto tranquiliza a la persona, crea una expectativa positiva y la prepara emocionalmente para el momento de la grabación. Nunca sorprenda al beneficiario con la cámara encendida.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 5.2b -->
+<div class="subsection">
+<div class="subsection-title">5.2b — La Sesión de Video y el Flujo de Carga</div>
+<p style="font-size:14px;color:var(--text-2);margin-bottom:24px;line-height:1.65;">Dentro del perfil de la operación, existe una sección dedicada llamada Sesión de Video. Aquí es donde el misionero gestiona todo lo relacionado con el video de comprobación de la entrega para esa operación específica.</p>
+<figure class="img-container" style="margin-bottom: 24px;"><img alt="Captura de la sesión de video dentro del perfil de la operación — mostrando el botón de agregar video y el pop-up de carga" src="images/img_video-session-pt.svg" style="width:100%; border-radius:var(--radius-lg); border:1px solid var(--border); display:block;"/><figcaption style="margin-top: 8px; font-size: 11px; color: var(--text-4); text-align: center;">Sesión de video — haga clic para agregar el video y confirmar la entrega mediante el pop-up de carga</figcaption></figure>
+
+<div class="card-grid card-grid-2">
+  <div class="card card-sm">
+    <h4>Cómo Funciona la Sesión de Video</h4>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">La Sesión de Video es la etapa final dentro de cada operación. Es donde envía la prueba visual de que la entrega ocurrió. Encontrará un botón claramente identificado para agregar o cargar un video directamente desde esa pantalla.</p>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">Al hacer clic en el botón de carga, se mostrará una ventana emergente. Desde ella, puede grabar directamente con la cámara de su dispositivo o seleccionar un archivo de video existente de su galería. Después de seleccionar el archivo, confirme el envío y espere a que el sistema lo procese.</p>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">Tras la carga exitosa del video, el estado de la operación se actualiza automáticamente — el sistema cierra el ciclo de entrega y envía una notificación al financiador con el enlace para ver el video.</p>
+  </div>
+  <div class="card card-sm">
+    <h4>El Rol del Misionero en el Proceso de Video</h4>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">Como misionero, usted es al mismo tiempo el Director y el Presentador de cada video de entrega. Es responsable de planificar la grabación antes de salir al campo, conducirla con cuidado y claridad en presencia del beneficiario, y realizar la carga a través del sistema lo más pronto posible tras la entrega.</p>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">Nunca debe entregar una Biblia sin grabar y enviar el video. El video no es opcional — es el mecanismo que cierra el ciclo de rendición de cuentas entre el financiador, la organización y el beneficiario. Las entregas sin comprobación en video se tratan como operaciones incompletas y afectarán la capacidad de su perfil para generar nuevas solicitudes financiadas.</p>
+    <p style="font-size:13px;color:var(--text-3);line-height:1.6;margin-top:8px;">Si no puede grabar el día de la entrega por una circunstancia excepcional, documente el motivo en el campo de Información Adicional de la operación y realice la carga del video lo antes posible. Las operaciones incompletas recurrentes serán analizadas por la organización.</p>
+  </div>
+</div>
+</div>
+
+<!-- 5.3 -->
+<div class="subsection">
+<div class="subsection-title">5.3 — La dirección del video (el guion innegociable)</div>
+<p style="font-size:14px;color:var(--text-3);margin-bottom:24px;line-height:1.65;">Usted, misionero, es el Presentador y el Director de esta escena. Siga exactamente este orden — sin improvisar la secuencia.</p>
+<div class="steps">
+<div class="step">
+<div class="step-left"><div class="step-num">1</div></div>
+<div class="step-body">
+<h4>La apertura — contexto geográfico</h4>
+<p>Comience situando al donante en el mundo. Necesita saber dónde llegó la Biblia.</p>
+<div class="script-box">"¡Hola! Estamos aquí en la ciudad de [Nombre de la Ciudad], en el país [Nombre del País]..."</div>
+</div>
+</div>
+<div class="step">
+<div class="step-left"><div class="step-num">2</div></div>
+<div class="step-body">
+<h4>La presentación del beneficiario y del producto</h4>
+<p>Muestre claramente quién recibe y qué recibe. Asegúrese de que la Biblia o Audio Biblia sea visible en la cámara, en manos de la persona.</p>
+<div class="script-box">"...y estoy aquí con [Nombre del Beneficiario], quien hoy recibe su Audio Biblia / Biblia Impresa."</div>
+</div>
+</div>
+<div class="step">
+<div class="step-left"><div class="step-num critical">!</div></div>
+<div class="step-body">
+<h4 style="color:var(--red-text);">El momento de honor — el reconocimiento nominal</h4>
+<p>Mire directamente a la cámara y mencione el nombre <strong style="color:var(--text-1);">exacto</strong> de quien financió esta entrega. El financiador renunció a algo suyo para que esta Biblia llegara hasta aquí — merece ser reconocido por su nombre. No porque esto genere más financiamiento, sino porque es un acto de gratitud genuina. Mencione <strong style="color:var(--text-1);">todos</strong> los nombres — cada uno importa.</p>
+<div class="script-box critical">"Queremos agradecer inmensamente a [Nombre del Donante 1] y [Nombre del Donante 2] por haber financiado esta entrega. ¡Muchas gracias por esta semilla!"</div>
+</div>
+</div>
+<div class="step">
+<div class="step-left"><div class="step-num">4</div></div>
+<div class="step-body">
+<h4>El espacio de habla — empoderamiento del beneficiario</h4>
+<p>Gire el celular or el micrófono hacia el beneficiario. Este es su momento.</p>
+<ul style="margin-top:10px;padding-left:0;display:flex;flex-direction:column;gap:8px;">
+<li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-3);list-style:none;"><span style="width:4px;height:4px;border-radius:50%;background:var(--text-4);margin-top:7px;flex-shrink:0;"></span>Si es tímido: un simple "Muchas gracias" con una sonrisa genuina ya es perfecto y suficiente</li>
+<li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-3);list-style:none;"><span style="width:4px;height:4px;border-radius:50%;background:var(--text-4);margin-top:7px;flex-shrink:0;"></span>Si quiere hablar libremente: deje que cuente cómo eso cambiará su vida — la autenticidad es lo que más emociona a los donantes</li>
+<li style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-3);list-style:none;"><span style="width:4px;height:4px;border-radius:50%;background:var(--text-4);margin-top:7px;flex-shrink:0;"></span>Nunca fuerce discursos largos, guiones memorizados o frases religiosas si la persona no se siente cómoda</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 5.4 -->
+<div class="subsection">
+<div class="subsection-title">5.4 — Consejos de oro de dirección audiovisual en el campo</div>
+<p style="font-size:14px;color:var(--text-3);margin-bottom:0;line-height:1.65;">Para asegurar que el donante pueda ver con calidad, aplique este checklist rápido antes de grabar:</p>
+<div class="av-grid">
+<div class="av-card">
+<div class="av-icon">☀</div>
+<h4>Luz (iluminación)</h4>
+<p>Nunca grabe a contraluz o frente a una ventana — la persona se verá solo como una sombra oscura. La luz debe dar en sus rostros, nunca detrás.</p>
+</div>
+<div class="av-card">
+<div class="av-icon">♪</div>
+<h4>Sonido (audio)</h4>
+<p>Evite grabar cerca de carreteras, altavoces o vientos fuertes. El donante necesita escuchar su propio nombre mencionado con total claridad.</p>
+</div>
+<div class="av-card">
+<div class="av-icon">▭</div>
+<h4>Encuadre</h4>
+<p>Grabe del pecho hacia arriba. El donante quiere ver la expresión facial del beneficiario y la Biblia en sus manos. Rostros distantes no crean conexión emocional.</p>
+</div>
+</div>
+</div>
+<!-- 5.5 -->
+<div class="subsection">
+<div class="subsection-title">5.5 — Checklist completo de grabación</div>
+<div class="checklist">
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Identidad: mencioné el nombre completo del beneficiario que está recibiendo</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">El producto: mostré y dije lo que está recibiendo — Biblia Impresa o Audio Biblia</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Geografía: dije la ciudad y el país donde estamos</span>
+</div>
+<div class="check-item critical-item">
+<div class="check-box crit"></div>
+<span class="check-text crit-text">Reconocimiento nominal (esencial): mencioné por su nombre a todos los financiadores de esta entrega, como acto de gratitud y rendición de cuentas</span>
+<span class="check-badge">Crítico</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Empoderamiento: cedí la palabra al beneficiario para que se expresara libremente</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Iluminación: la luz da en el rostro, no detrás de nosotros</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Audio: estamos lejos de ruidos excesivos</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Encuadre: estamos filmando del pecho hacia arriba, de cerca</span>
+</div>
+<div class="check-item">
+<div class="check-box"></div>
+<span class="check-text">Carga: confirmé el envío del video dentro de la operación en el sistema</span>
+</div>
+</div>
+</div>
+<!-- 5.6 -->
+<div class="subsection">
+<div class="subsection-title">5.6 — El impacto final (cerrando el ciclo completo)</div>
+<div class="card-grid card-grid-2" style="margin-bottom:16px;">
+<div class="card card-sm">
+<h4>Acción</h4>
+<p style="font-size:13px;color:var(--text-3);margin-top:4px;line-height:1.6;">Tras grabar, haga clic para finalizar la carga del video dentro de la operación.</p>
+</div>
+<div class="card card-sm">
+<h4>Qué sucede tras bambalinas</h4>
+<p style="font-size:13px;color:var(--text-3);margin-top:4px;line-height:1.6;">El sistema notifica al financiador con el enlace al video. Verá el rostro y escuchará la voz de quien recibió la Biblia que él hizo posible — y sabrá, con pruebas, que su decisión llegó hasta el final.</p>
+</div>
+</div>
+<div class="alert alert-green">
+<div class="alert-icon">✓</div>
+<div>
+<ul style="padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;">
+<li style="font-size:14px;color:rgba(110,231,183,0.8);">La operación se cierra con un 100% de éxito y transparencia</li>
+<li style="font-size:14px;color:rgba(110,231,183,0.8);">Su indicador de Entregas Realizadas en el tablero sube</li>
+<li style="font-size:14px;color:rgba(110,231,183,0.8);">La confianza del donante en usted se consolida</li>
+<li style="font-size:14px;color:rgba(110,231,183,0.8);">El financiador ve, con pruebas, que el sistema funciona — y naturalmente desea seguir formando parte</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ─── CREDO ─── -->
+<section id="credo">
+<div class="section-label">Resumen ejecutivo</div>
+<h2>El credo del misionero digital</h2>
+<p class="section-intro">Para no fallar, grabe estas dos premisas fundamentales antes de comenzar el día:</p>
+<div class="credo-grid">
+<div class="credo-card">
+<div class="credo-num">01</div>
+<h3>Mi dirección en el perfil está blindada contra errores</h3>
+<p>Porque todo llegará allí. Verifico regularmente mi código postal, calle, número y complemento. Soy el hub logístico — cualquier error en la dirección es una misión perdida.</p>
+</div>
+<div class="credo-card">
+<div class="credo-num">02</div>
+<h3>Las Biblias llegan solo a quienes realmente no tienen otro acceso</h3>
+<p>Cada Biblia financiada por esta plataforma está destinada a alguien que no tiene otra forma de recibirla. Si una persona tiene condiciones de adquirir o acceder a una Biblia por su cuenta y aun así recibe una donada, eso significa quitarle la oportunidad a quien no tendría absolutamente ningún acceso. Mi compromiso es alcanzar exclusivamente a quien no puede acceder a una Biblia por ningún medio — no a quien simplemente aún no tenía una.</p>
+</div>
+</div>
+<div class="card" style="text-align:center;padding:28px;">
+<p style="font-size:15px;font-weight:500;color:var(--text-1);line-height:1.65;">¡Buen trabajo en el campo! Su organización y precisión digital garantizan que la Palabra siga llegando a quienes más lo necesitan.</p>
+</div>
+</section>
+<!-- ─── FOOTER ─── -->
+<footer style="padding: 40px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: 12px; color: var(--text-4);">
+  <span>&copy; 2024 9forLives. Todos los derechos reservados.</span>
+  <span>v4.0</span>
+</footer>
+</div>
+</div>
+
+<script>
+  // Sincronización de idioma
+  const currentLang = 'es';
+  const storedLang = localStorage.getItem('playbook-lang');
+  
+  if (storedLang && storedLang !== currentLang) {
+    if (storedLang === 'en') {
+      window.location.href = 'operations-en.html';
+    }
+    if (storedLang === 'pt-BR') {
+      window.location.href = 'operations-pt.html';
+    }
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const btnText = btn.textContent.trim().toUpperCase();
+      const targetLang = btnText === 'EN' ? 'en' : (btnText === 'PT' ? 'pt-BR' : 'es');
+      localStorage.setItem('playbook-lang', targetLang);
+    });
+  });
+
+  document.querySelector('.menu-btn').addEventListener('click', () => {
+    document.querySelector('.sidenav').classList.toggle('active');
+  });
+
+  // Active Nav Scroll
+  const links = document.querySelectorAll('.sidenav a');
+  const sections = document.querySelectorAll('section[id], header');
+  function updateNav() {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id || ''; });
+    links.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + cur) l.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+</script>
+
+</body>
+</html>
